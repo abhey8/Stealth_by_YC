@@ -1,4 +1,14 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+function apiBase() {
+  if (process.env.NEXT_PUBLIC_API_BASE_URL) {
+    return process.env.NEXT_PUBLIC_API_BASE_URL;
+  }
+
+  if (typeof window !== "undefined" && window.location.hostname.endsWith(".onrender.com")) {
+    return "https://stealth-advisor-backend.onrender.com";
+  }
+
+  return "";
+}
 
 export type PortfolioSummary = {
   id: string;
@@ -136,7 +146,7 @@ export type ChatResponse = {
 };
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE}${path}`, {
+  const response = await fetch(`${apiBase()}${path}`, {
     ...init,
     headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) }
   });
