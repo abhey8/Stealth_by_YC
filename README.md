@@ -8,6 +8,38 @@ The dashboard links:
 
 It computes market sentiment, sector trends, daily portfolio PnL, concentration risk, mutual-fund look-through exposure, causal explanations, confidence scores, reasoning-quality self-evaluation, and grounded chat answers over the provided fixtures.
 
+## Links
+
+- Live app: [https://stealth-advisor-frontend.onrender.com](https://stealth-advisor-frontend.onrender.com)
+- Backend health: [https://stealth-advisor-backend.onrender.com/health](https://stealth-advisor-backend.onrender.com/health)
+- GitHub repository: [https://github.com/abhey8/Stealth_by_YC](https://github.com/abhey8/Stealth_by_YC)
+- Demo video: [Google Drive walkthrough](https://drive.google.com/file/d/1zzeblpZA_uWv_XujeVTlVcHlqDkjdpAe/view?usp=drive_link)
+
+## Challenge Coverage
+
+This submission is designed to map directly to the assignment requirements:
+
+- Market Intelligence Layer:
+  market sentiment is derived from index movements, sector trends are computed from stock and sector data, and news is classified into market, sector, and stock-level drivers.
+- Portfolio Analytics Engine:
+  daily P&L, asset allocation, sector allocation, concentration risk, and mutual fund look-through exposure are computed from the provided portfolio and mutual fund fixtures.
+- Autonomous Reasoning Layer:
+  the system links `News -> Sector -> Stock -> Portfolio` and returns a concise causal explanation of why a selected portfolio moved.
+- Conflict Handling and Prioritization:
+  conflicting signals reduce confidence, weak evidence is explicitly marked, and high-impact drivers are ranked ahead of lower-impact signals.
+- Observability and Evaluation:
+  responses include structured trace metadata, latency, confidence scoring, reasoning quality scoring, and rule-based evaluation notes.
+- Delivery:
+  the project works through API, CLI, dashboard UI, and a grounded chat interface over the same backend reasoning engine.
+
+The demo video shows these requirements in action using the hosted app:
+
+- portfolio selection and analysis
+- causal explanation for Portfolio 2
+- concentration risk detection
+- sector exposure and market context
+- grounded chat answers using the same backend logic
+
 ## Architecture
 
 ```mermaid
