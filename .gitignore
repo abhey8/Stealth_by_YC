@@ -1,0 +1,19 @@
+.DS_Store
+
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+
+# Node / Next.js
+node_modules/
+.next/
+coverage/
+
+# Local editor files
+*.swp
+*.swo
+
+# TypeScript build info
+*.tsbuildinfo

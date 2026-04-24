@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: stealth-advisor-backend
+    runtime: python
+    plan: free
+    rootDir: Backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+  - type: web
+    name: stealth-advisor-frontend
+    runtime: node
+    plan: free
+    rootDir: Frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start -- --hostname 0.0.0.0 --port $PORT
+    envVars:
+      - key: BACKEND_ORIGIN
+        fromService:
+          type: web
+          name: stealth-advisor-backend
+          property: hostport
